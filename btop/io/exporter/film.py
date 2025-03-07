@@ -28,7 +28,6 @@ class FilmIO(object):
         pass
 
     def write_to_file(self, writer):
-
         film_props = bpy.context.scene.pbrt_film_props
         render = bpy.context.scene.render
 
@@ -48,10 +47,11 @@ class FilmIO(object):
                                                                          crop_win_y_min,
                                                                          crop_win_y_max))
 
+        filename = "output.exr"#film_props.filename
         film_line_comps.append('"float scale" {}'.format(film_props.scale))
         film_line_comps.append('"float maxsampleluminance" {}'.format(film_props.max_sample_luminance))
         film_line_comps.append('"float diagonal" {}'.format(film_props.diagonal))
-        #film_line_comps.append('"string filename" "{}"'.format(film_props.filename))
+        film_line_comps.append('"string filename" "{}"'.format(filename))
 
         writer.write(' '.join(film_line_comps) + '\n\n')
 

@@ -39,10 +39,10 @@ class PBRTExporter(object):
 
     def export(self, output_path: Path):
         with open(output_path, "w") as file_handler:
+            self.filmio.write_to_file(file_handler)
             self.cameraio.write_to_file(file_handler)
-
             self.samplerio.write_to_file(file_handler)
             self.integratorio.write_to_file(file_handler)
-            self.filmio.write_to_file(file_handler)
+            
 
             self.sceneio.write_to_file(file_handler)

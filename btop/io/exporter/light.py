@@ -117,11 +117,12 @@ class LightIO(object):
                 else:
                     light_line_comps.append('"spectrum scale" [{} {}]'.format(light_props.scale, light_props.scale))
                     writer.write(' '.join(light_line_comps) + '\n\n')
-
+        """
         world_props = bpy.context.scene.pbrt_world_props
         light_line_comps = ['LightSource "infinite"']
         lum = world_props.luminance
         light_line_comps.append('"rgb L" [{} {} {}] "integer samples" {} "string mapname" "{}"'.format(
             lum.r, lum.g, lum.b, world_props.samples, world_props.mapname.replace("\\", "/")
         ))
-        writer.write(' '.join(light_line_comps) + '\n\n')
+        writer.write(' '.join(light_line_comps) + '\n\n')"
+        """
