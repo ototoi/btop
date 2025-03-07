@@ -47,7 +47,10 @@ class SceneIO(object):
             if object.hide_get():
                 continue
 
-            if object.type == 'MESH' and object not in self.lightio.area_light_geometries:
+            if object in self.lightio.area_light_geometries:
+                continue
+
+            if object.type == 'MESH':
                 writer.write('AttributeBegin\n')
                 self.materialio.write_to_file(writer, object)
                 self.meshio.write_to_file(writer, object)

@@ -20,7 +20,7 @@ import os
 import bpy
 import time
 
-from ..sceneio import PBRTExporter
+from ..io import PBRTExporter
 from ..ui.preferences import get_pref
 
 
