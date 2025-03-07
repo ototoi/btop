@@ -37,23 +37,3 @@ class MaterialIO(object):
                     return n
             return None
         pass 
-
-        # Get output node from active material
-        material = meshobj.active_material
-        output_node = find_node(material.node_tree.nodes, 'ShaderNodeOutputMaterial')
-
-        if output_node is None:
-            raise Exception('Cannot find output node for material : %s' %material.name)
-
-        # Get PBRT shader node from output surface socket
-        shader = output_node.inputs['Surface'].links[0].from_node
-        # Export from the shader node
-        if hasattr(shader, 'export'):
-            shader.export(indent, writer)
-
-        else:
-            # No shader fits
-            # TODO Attribute a standard material instead such that something is rendered?
-            print( '[btop.material.py] None pbrt material assigned : %s' %shader.name )
-
-            raise Exception('None pbrt material assigned : %s' %shader.name)

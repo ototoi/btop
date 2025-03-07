@@ -15,6 +15,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+from pathlib import Path
 import bpy, copy
 
 from .camera import CameraIO
@@ -36,8 +37,8 @@ class PBRTExporter(object):
         self.filmio = FilmIO()
         self.sceneio = SceneIO()
 
-    def export(self, output_path):
-        with open(output_path, 'w') as file_handler:
+    def export(self, output_path: Path):
+        with open(output_path, "w") as file_handler:
             self.cameraio.write_to_file(file_handler)
 
             self.samplerio.write_to_file(file_handler)

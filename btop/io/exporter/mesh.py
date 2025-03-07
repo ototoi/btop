@@ -20,8 +20,8 @@ import bmesh
 
 import math
 
-from ..misc import triangulate
-from ..misc import triangulateUV
+from ...misc import triangulate
+from ...misc import triangulateUV
 
 
 # This part of code will be used by area light mesh export, make it a function

@@ -16,6 +16,7 @@
 # THE SOFTWARE.
 
 import os
+from pathlib import Path
 
 import bpy
 import time
@@ -71,12 +72,14 @@ class PBRTRenderEngine(bpy.types.RenderEngine):
         cache_filepath = os.path.join(cache_folder, filename.replace('.blend', '.pbrt'))
         converted_cache_filepath = os.path.join(cache_folder, filename.replace('.blend', '_converted.pbrt'))
         outfile = os.path.join(cache_folder, filename.replace('.blend', '.exr'))
+        print('Output file : ', outfile)
 
         # Get film resolution from camera attributes
         render = bpy.context.scene.render
         x_resolution = render.resolution_x
         y_resolution = render.resolution_y
 
+        cache_filepath = Path(cache_filepath)
         # Export pbrt cache file
         exp_time = time.time()
         exporter.export(cache_filepath)

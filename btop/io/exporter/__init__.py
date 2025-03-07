@@ -15,39 +15,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from . import camera
-from . import film
-from . import world
-from . import sampler
-from . import integrator
-from . import material
-from . import light
-from . import importer
-from . import exporter
-from . import preferences
-
-
-def register():
-    camera.register()
-    film.register()
-    world.register()
-    sampler.register()
-    integrator.register()
-    material.register()
-    light.register()
-    importer.register()
-    exporter.register()
-    preferences.register()
-
-
-def unregister():
-    camera.unregister()
-    film.unregister()
-    world.unregister()
-    sampler.unregister()
-    integrator.unregister()
-    material.unregister()
-    light.unregister()
-    importer.unregister()
-    exporter.unregister()
-    preferences.unregister()
+from .export import PBRTExporter
