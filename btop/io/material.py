@@ -17,8 +17,6 @@
 
 import bpy
 
-from ..nodes import shading
-
 
 class MaterialIO(object):
     """
@@ -38,6 +36,7 @@ class MaterialIO(object):
                 if n.bl_idname == name:
                     return n
             return None
+        pass 
 
         # Get output node from active material
         material = meshobj.active_material
