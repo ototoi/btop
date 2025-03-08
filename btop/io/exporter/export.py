@@ -43,6 +43,5 @@ class PBRTExporter(object):
             self.cameraio.write_to_file(file_handler)
             self.samplerio.write_to_file(file_handler)
             self.integratorio.write_to_file(file_handler)
-            
 
             self.sceneio.write_to_file(file_handler)

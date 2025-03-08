@@ -18,6 +18,7 @@
 import bpy
 
 from .mesh import MeshIO
+from .surface import SurfaceIO
 from .material import MaterialIO
 from .light import LightIO
 
@@ -29,6 +30,7 @@ class SceneIO(object):
 
     def __init__(self):
         self.meshio = MeshIO()
+        self.surfaceio = SurfaceIO()
         self.materialio = MaterialIO()
         self.lightio = LightIO()
 
@@ -55,6 +57,14 @@ class SceneIO(object):
                 self.materialio.write_to_file(writer, object)
                 self.meshio.write_to_file(writer, object)
                 writer.write('AttributeEnd\n\n')
+            elif object.type == 'SURFACE':
+                writer.write('AttributeBegin\n')
+                self.materialio.write_to_file(writer, object)
+                self.surfaceio.write_to_file(writer, object)
+                
+                writer.write('AttributeEnd\n\n')
+            else:
+                print('Object type {} not supported'.format(object.type))
 
         writer.write('WorldEnd\n')
 
